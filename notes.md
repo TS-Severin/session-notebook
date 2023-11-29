@@ -44,3 +44,15 @@ when working alone the main branch will not change
 ## how to pull
 
 `git pull`
+
+## one more note
+
+`git push -u origin NAMEOFBRANCH`
+
+the -u sets up an upstream but we already did this
+
+so it is not necessary
+
+but it saves you to write the origin each time
+
+instead you can always include origin and NAMEOFBRANCH
