@@ -2,13 +2,13 @@
 
 ## create branch
 
-`git switch -c "NAMEOFBRANCH"`
+`git switch -c <nameofbranch>`
 
 The name of the branch must not include spaces
 
 In my older version of git the command goes as follows:
 
-`git checkout -b "NAMEOFBRANCH"`
+`git checkout -b <nameofbranch>`
 
 If unsure how the command is correct it is always possible to type in shell:
 
@@ -22,7 +22,7 @@ this is really useful because it simply shows the different commands available i
 
 > this is the usual workflow if working with branches
 
-`git push origin NAMEOFBRANCH`
+`git push origin <nameofbranch>`
 
 ## merge branch
 
@@ -47,7 +47,7 @@ when working alone the main branch will not change
 
 ## one more note
 
-`git push -u origin NAMEOFBRANCH`
+`git push -u origin <nameofbranch>`
 
 the -u sets up an upstream but we already did this
 
@@ -55,4 +55,4 @@ so it is not necessary
 
 but it saves you to write the origin each time
 
-instead you can always include origin and NAMEOFBRANCH
+instead you can always include origin and <nameofbranch>
