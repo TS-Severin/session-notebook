@@ -23,7 +23,7 @@ setTimeout(() => {console.log("callback function")}, 3000);
 - promise has to kinds of states: pending && settled,fulfilled,resolved || rejected)
 - promise is part of the js language
 
-**promise-object provieds methods:**
+**promise-object provids methods:**
 
 **then**
 
