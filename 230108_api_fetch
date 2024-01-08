@@ -1,0 +1,72 @@
+### Fetch API
+
+=> get data
+
+=> it is promise based
+=> needs await
+
+=> without await it gets the promise not the object
+=> if await is put in front of the function it returns the object
+
+await navigator.getBattery()
+
+=> navigator is an object in the browser
+=> getBattery() is a function within the navigator object
+
+const battery = await navigator.getBattery();
+console.log(battery);
+
+### project game
+
+- idea: i press a button, i get three random cards
+- i could use 52 images of cars
+- OR: i find an api which gives you cards
+
+=> i find an api, i can get the data via a link
+(VERY IMPORTANT TO READ THE DOCUMENTATION)
+
+=> we receive the data a a json file
+
+## build a fetch request (basic requests: get, post, put, delete)
+
+- go to javascript
+
+import { Button } from "../components/Button/Button.js"
+import { CardDisplay } from "../components/Button/Button.js"
+
+const main = document.querySelector("main")
+
+_async_ function handleGetCards() {
+try {
+const response = _await_ fetch("url of api")
+if (response.ok) {
+// turns data (it is a js object) in json where i need it
+const data = await response.json();
+console.log(data);
+
+const cards = data.cards;
+let cardSet = "";
+
+// gets the urls for the card-images from the object fetched
+cards.forEach(card => {
+cardSet += `<img src= ${card.image} alt="Card" />`;
+});
+
+// overwrites the h1 from cardsDisplay with cardSet
+
+cardsDisplay.innerHTML = cardSet
+
+}
+console.log(response);
+} catch (error) {
+console.log(error);
+} finally {
+asdjhfionaoüias
+}
+}
+
+const play = Button("Play", handleGetCards);
+const cardsDisplay = CardDisplay();
+
+main.append(CardDisplay)
+main.append(play)
