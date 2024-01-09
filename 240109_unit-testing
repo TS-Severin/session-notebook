@@ -1,0 +1,77 @@
+### unit testing
+
+=> automated testing
+=> should be written in the language which we are testing
+=> runs the function and makes sure if it works
+=> runs tests which covers edge-cases
+=> the tests don't make sure whether it works but when changes apply
+=> the test can fastly make sure whether it STILL works after the changes
+=> side effect: code must be well structured in order to be tested in a modular way
+=> good for understanding foreign code: you can go through the tests in order to understand the code => tests are often better than the documentation
+=> writing test sometimes takes more time than code itself but on the long run makes the work more effective
+=> if there is a but and the test is green one has to add a new test => goes back and forth all the time
+=> js blogger: kent c dodds (really famous) => he wrote a test library
+=> 'testing-trophy' => shows different tests
+=> levels of testing:
+-static (linting),
+-unit (modular),
+-integration (all together),
+-End to End (robot acts like user)
+
+### jest (what we are using)
+
+every js file gets an according test file:
+-greet.js
+-greet.test.js
+
+=> jest runs all the files which are called test this way
+
+greet.js
+
+export function greet(name) {
+return `Hello ${name}!`;
+}
+
+greet.test.js
+
+import {greet} from "filename.js"
+
+test('returns "Hello Jane! if called greet("Jane")', () => {
+const result = greet('Jane')
+
+    // this is a so called expectation - toBe is a so called matcher (check the opposite .not.toBe)
+    expect(result).toBe('Hello Jane!')
+
+})
+
+test() is a funciton in jest which accepts 2 parameters:
+-string which should describe the functionality
+-and a callback function which includes the one which should be tested
+
+### test driven development
+
+=> test are driving the development
+=> starting with a test
+=> functionality comes after the test
+=> test describes the functionality
+
+// we call grett without a name -> "Hello stranger!"
+
+// When the function is calles with 'Sven' -> "Hello coach!"
+
+=> now first we write a test
+
+test('returns "Hello stranger!" if called greet()', () => {
+const result = greet ()
+expect(result).toBe("Hello stranger!")
+})
+
+=> try to write the most minimal code:
+
+function sum() {
+return 3
+}
+
+=> test is green => change implementation => write other failing test
+
+### run test in terminal: npm test index.test.js

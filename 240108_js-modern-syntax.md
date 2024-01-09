@@ -1,5 +1,8 @@
 ### js modern syntax
 
+object destruction is often happening in import-statements
+=> objects are more often destructed than arrays
+
 ## destructuring
 
 ## rest operator ...
@@ -57,11 +60,13 @@ name: 'sven',
 age: 50
 }
 
-const person = (name, ...rest)
+const {name, ...rest} = person;
 // collects the rest
 
 // difference array object => array is ordered => every item in an array has a certain index
 // an object doesn't have that
+
+## destruct arrays
 
 const animals = ['cat', 'dog', 'mouse']
 
@@ -126,4 +131,6 @@ persons.map(person => person) // returns same array
 
 persons.map(person => {
 return {...person, age: 50} // content spreads into new object => object is the same => but age is changed in all objects
-}) // spread has to be first => has to be spreaded an than overwritten
+})
+
+// spread has to be first => has to be spreaded an than overwritten
