@@ -1,0 +1,215 @@
+### type script
+
+## what does it do?
+
+typescript need to be transformed into js to be executed in vsc or run js
+
+=> we need a compiler:
+
+tsc
+
+=> install
+npx tsc index.ts
+
+=> in js it is legal to asign different data types to one variable
+
+let a = 123;
+a = '';
+a = false;
+
+=> you can't be sure what kind of type is stored in a variable
+
+2 + '2' can lead to 22 if a given function uses an argument which has been reassigned
+
+=> typescript solves these problems
+
+=> it is an extensin to js
+=> it has a file extension ts
+=> basic syntax is more or less the same
+
+but: i can do a type annotation
+
+let a: number
+
+=> annotates a data type to a variable "a"
+
+if i type
+
+let a = 123
+
+ts knows that it is datatype number
+
+if i assign a string later
+
+a = ''
+
+=> i get an error
+
+## working with ts
+
+create:
+=> index.ts
+
+npm i -D typescript ts-node
+
+creates ts config file
+ppx tsc --init
+
+we unse .ts => compiler produces .js => js is used in browser
+
+=> important => don't change the js file created by the compiler
+
+const arr: string[] = []
+=> it is an array of strings
+
+arr.push(5);
+=> doesn't work in ts only in js
+
+arr.push('hello')
+=> works cause 'hello' is a string
+
+let a: any
+=> use case in ts: you can use the variable then as different data types
+
+## objects
+
+type User = {
+name: string,
+id: number
+}
+
+const user = {
+name: 'sven'
+id: 123
+}
+
+=> if id: '123 is later declared it gives an error
+=> also if there is only one key: value-pair declared instead of the two expected ones
+
+type User = {
+name: string,
+id: number,
+email?: string,
+}
+
+=> email is now optional
+
+interface User = {
+name: string,
+id: number
+}
+
+=> interface and type are almost the same
+BUT: interface can be extended
+
+interface User = {
+name: string,
+id: number
+}
+
+interface User {
+email: string
+}
+
+=> that works here with "interface" there can be a new value with "type" it doesn't work
+
+type LoogedInUserId = number | undefined
+
+=> | is like or
+
+let myArray: (number|string)[] = [123, "12"]
+
+=> covers numbers and undefined
+
+## define types with concrete values => uniontypes
+
+type salutation = 'hello' | 'dear'
+
+let s: salutation = 'hello'
+
+s can only hold 'hello' or 'dear'
+
+## types can be combined
+
+interface LoogedInUser {
+isLoggedIn: boolean
+}
+
+const user: User & LoggedInUser = {
+name: 'sven'
+email: ''
+id: 123
+}
+
+=> error: because LoggedInUser is missing
+
+=> in this function the data type of the arguments and the return value must be numbers
+function add(a: number, b: number): number {
+return a + b
+}
+add(1)
+=> doesn't work must be 2 arguments
+add(1, '2')
+=> error => number and string
+add(1, 2)
+=> works
+
+let myArray: (number | string)[] = ['34', '12']
+let str: string
+myArray.forEach((element) => {
+str = element as string // is here force defined => but that is dangerous
+})
+
+type LoggedInUserId = number | undefined
+
+type salutation = 'hello' | 'dear' | 'hi'
+
+function executeIn3Seconds(callback) {
+setTimeout(callback, 3000);
+}
+
+=> creates a timeout
+
+=> if you don't set a type in ts and the compiler can't tell it sets to 'any' which is the same as undefined in js
+
+function executeIn3Seconds(callback: () => void) {
+setTimeout(callback, 3000);
+}
+
+=> now the callback is defined as a function and the return value is void (empty)
+
+executeIn3Seconds(() => {
+console.log('hello');
+})
+
+##
+
+let arr2: Array<string>
+=> Array, elements of array are strings
+=> <string> is a type parameter
+
+function getFirstElement<T>(arr: Array<T>): T {
+return arr[0]
+}
+=> T is a placeholder
+=> after i call the function the engine detects the datatypes and fills it into the placeholder <T>
+
+=> first thing is possible second not
+getfirstElement([1, 2, 3])
+getfirstElement([false, false, false])
+
+async function myAsyncFunction(): Promise<number> {
+return 123
+}
+myAsyncFunction().then(result => {
+console.log(result);
+})
+
+=> array and object are not enough to define => we have to define the content datatype
+=> <Array<number>>
+
+=> working with react you can chose between js and ts
+=> today heeps of js projects are created in ts
+=> ts as shows errors directly in the code => like .... is not defined
+
+### typescript is only for development
