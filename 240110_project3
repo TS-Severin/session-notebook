@@ -1,0 +1,16 @@
+### rick and morty
+
+-download in one repo => we work in one person's github
+-post link to live appliacation in slack
+-start working
+
+marcels approach
+=> writing in one file and then defactoring
+
+header
+
+search bar => fixed
+
+cards => according to search and with new pagination
+
+footer => with next previous buttons and pagination
