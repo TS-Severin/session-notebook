@@ -45,7 +45,7 @@ return <div className="card">{children}</div>;
 
 => if we use <Button> </Button> now, everything between is passed as children
 
-<Button> Adopt {name} </Button> // Adopt {name} will be rrendered between the tag
+<Button> Adopt {name} </Button> // Adopt {name} will be rendered between the tag
 
 ## use case
 
