@@ -55,3 +55,52 @@ return <button onClick={() => {setCounter(counter + 1);}}>You have clicked this 
 
 => with boolean values we often use varialbes like isVegan
 => the is is a convention to show immediatly that it is a boolean
+
+First challenge (box):
+
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+// let isActive = false;
+const [isActive, setIsActive] = useState(false);
+
+function handleClick() {
+setIsActive(!isActive);
+// Check that the value changes correctly.
+console.log(isActive);
+}
+
+return (
+
+<main>
+<div className={`box ${isActive ? "box--active" : ""}`} />
+<button onClick={handleClick}>Activate</button>
+</main>
+);
+}
+
+### journal app favorite button
+
+import { useState } from "react";
+import "./FavoriteButton.css";
+import { ReactComponent as StarFilled } from "./star-filled.svg";
+import { ReactComponent as Star } from "./star.svg";
+
+export default function FavoriteButton() {
+// this should be a state variable
+// const isFavorite = false;
+const [isFavorite, setIsFAvorite] = useState(false);
+
+return (
+<button
+className="favorite-button"
+onClick={() => {
+setIsFAvorite(!isFavorite);
+console.log("favorite button clicked");
+}}
+aria-label="favorite" >
+{isFavorite ? <StarFilled /> : <Star />}
+</button>
+);
+}
