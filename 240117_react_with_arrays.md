@@ -46,7 +46,8 @@ function Movies return (
 
 index:
 
-{movies && movies.map((element, index)=> <Card title={element, index} key={element.index} />)}
+{movies && movies.map(
+(element, index) => <Card title={element, index} key={element.index} />)}
 
 That would be the surrounding array and function:
 
@@ -71,3 +72,6 @@ import {array} from "..."
 const movies = [
 ...
 ]
+
+{roles && roles.map(
+(role, index) => <Tag role={role, index} key={role.index} />)}
