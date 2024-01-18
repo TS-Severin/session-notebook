@@ -73,5 +73,5 @@ const movies = [
 ...
 ]
 
-{roles && roles.map(
+{user.roles && user.roles.map(
 (role, index) => <Tag role={role, index} key={role.index} />)}

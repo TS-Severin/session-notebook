@@ -52,6 +52,12 @@ html with one div which is the root
 => the function returns jsx in react and later js
 
 => the props returns an object => that's why we have to do either
+=> all the buttons props are one object 
 => props.buttontext
 OR
 => {buttontext}
+
+## tool for google chrome and react
+extension for chrome: react dev tools => shows what react renders
+
+

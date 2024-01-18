@@ -104,3 +104,11 @@ aria-label="favorite" >
 </button>
 );
 }
+
+additional class for admin:
+
+.tag--highlight {
+color: var(--color-nemo);
+}
+
+{role === "admin" ? }
