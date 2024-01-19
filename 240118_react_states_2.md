@@ -38,3 +38,5 @@ propname is a variable
 const results = topics.filter((topic) => topic.includes(searchTerm));
 
 => topics.filter calls a callback function topic.includes
+
+### Recap

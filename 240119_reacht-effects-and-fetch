@@ -1,0 +1,67 @@
+### react effects and fetch
+
+- pure function => effect is always the same => no side effects
+- if we rely on external data we have no influence on the outcome
+
+=> if we fetch data we need states and an initial value
+
+=> here we have the external data source as a side effect
+=> we need to tell react that it shouldn't rerender the site all the time
+=> with useEffect we tell react what to do
+
+import {useState} from "react";
+
+const [joke, setJoke] = useState()
+const [id, setId] => useState(0)
+
+=> useEffect() => two parameters a function and an array (dependency array)
+=> in the dependency array we can define dependencys => what it should do
+=> extreme values
+=> empty array => once
+=> without => always
+=> with empty array the data is only fetched once
+
+useEffect(() => {
+
+// pauses until my fetch is done
+
+async function startFetching() {
+const response = await fetch('url from thunder client'must end with ${id})
+
+// create joke object
+const joke = await response.json()
+
+setJoke(joke)
+}
+
+startFetching()
+
+}, [id])
+
+// useEffect waits until the function before is rendered => beforte that there is no element 'heading' so it wouldn't be working without
+useEffect(() => {document.getElementByIde('heading').textContent = 'some text'
+
+// useEffect can have a return value which is a function
+
+return (() => {console.log('cleanup')} )
+
+// sometimes it is important to cleanup => if i add an event listener to an element with useEffect i add it each time the site is rendered
+// i can use a cleanup function to remove it afterwards
+// important to remember to clean up intervals, delays or eventListener
+
+})
+
+// don't render anything
+if (!joke) {
+return null
+}
+
+// renders the joke
+// next-button should rerender the page by updating the state
+return (
+<>
+
+<h1>{joke?.joke || ''}</h1>
+    <button onClick={() => {setId(joke.nextId)}} type="button">Next Joke</button>
+    </>
+)
