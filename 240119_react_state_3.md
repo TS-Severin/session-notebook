@@ -16,7 +16,7 @@ const filtered = movies.filter(movie => movie.id !== id) // it adds a movie to a
 setMovies(filtered) // we don't need a new array, because filter creates a shallow copy itself
 }
 
-=> ad as a prop to element:
+=> add as a prop to element:
 onHandleDeleteMovie={handleDeleteMovie}
 
 in compoonent
